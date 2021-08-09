@@ -1,25 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="calc">
+      <div class="tabs">
         <div class="tabs">
-            <div class="tabs">
-                <div class="tab-left active">Лэндинг</div>
-                <div class="tab-right">Многостраничный сайт</div>
-            </div>
+          <div class="tab-left active">Лэндинг</div>
+          <div class="tab-right">Многостраничный</div>
         </div>
+      </div>
+      <div class="blocks" id="blocks-block">
+        <div class="blocks-title">Колличество блоков</div>
+        <input type="number" class="counter" id="counter-block" />
+      </div>
+      <div class="blocks" id="pages-block">
+        <div class="blocks-title">Колличество страниц</div>
+        <input type="number" class="counter" id="counter-pages" />
+      </div>
+      <div class="blocks">
+        <div class="blocks-title">Сколько часов на проект</div>
+        <input type="number" class="counter" id="counter-hours" />
+      </div>
+      <div class="blocks">
+        <div class="blocks-title">Стоимость вашего часа</div>
+        <input type="number" class="counter" id="counter-rate" />
+      </div>
+      <div class="addiction">
+        <div class="addiction-title">Дополнительно</div>
+        <div class="addiction-block">
+          <input class="checkbox" type="checkbox" id="changes-check" />
+          Возможность редактирования текста на сайте
+        </div>
+        <div class="addiction-block">
+          <input class="checkbox" type="checkbox" id="changes-cms" />
+          Установка на CMS
+        </div>
+      </div>
+      <div class="total">
+        Общая стоимость
+        <input value="5000" type="text" class="total-count" id="total-value" />
+      </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
