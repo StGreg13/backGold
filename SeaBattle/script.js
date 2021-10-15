@@ -7,25 +7,42 @@ const record = document.getElementById("record"),
     header = document.querySelector('.header');
 
 const game = {
-    ships: [
-        {
-            location:['26', '36', '46', '56'],
-            hit:['','','','']
-        },
-        {
-            location:['11','12','13'],
-            hit:['','','']
-        },
-        {
-            location:['69','79'],
-            hit:['','']
-        },
-        {
-            location:['32'],
-            hit:['']
-        },
-    ],
-    shipCount: 4,
+    ships: [],
+    shipCount: 0,
+    optionShip: {
+        count: [1],
+        size: [4, 3, 2, 1]
+    },
+    generateShip() {
+        for (let i = 0; i < this.optionShip.count.length; i++) {
+            for (let j = 0; j < this.optionShip.size[i]; j++){
+               const size = this.optionShip.size[i];
+               const ship = this.generateOptionsShip(size);
+               this.ships.push(ship);
+               this.shipCount++;
+
+            }
+        }
+    },
+    generateOptionsShip(shipSize) {
+        const ship = {
+            hit: [],
+            location: [],
+        };
+
+        const direction = Math.random() < 0.5;
+        // [0 до 0,99999]
+        // [0 - 0.49999 ] / [0.5 - 0.99999 ]
+
+        if (direction) {
+            x = Math.floor(Math.random() * 10);
+            y = Math.floor(Math.random() * 10);
+        } else {
+           
+        }
+
+        return ship;
+    }
 }
 
 const play = {
@@ -62,7 +79,9 @@ const show = {
 
 const fire = (event) => {
     const target = event.target;
-    if (target.classList.length !== 0 || target.tagName !== "TD") return;
+    if (target.classList.length !== 0 ||
+        target.tagName !== "TD" ||
+        !game.shipCount) return;
     show.miss(target);
     play.updateData = 'shot';
 
@@ -81,7 +100,8 @@ const fire = (event) => {
                 }
 
                 game.shipCount -= 1;
-                if (game.shipCount < 1) {
+                
+                if (!game.shipCount) {
                     header.textContent = "Игра окончена!";
                     header.style.color = "red";
 
@@ -99,10 +119,17 @@ const fire = (event) => {
 const init = () => {
     enemy.addEventListener("click", fire);
     play.render();
-
+    game.generateShip();
     again.addEventListener('click', () => {
         location.reload();
     });
+    record.addEventListener('dblclick', ()=> {
+        localStorage.clear();
+        play.record = 0;
+        play.render();
+    });
+
+    console.log(game.ships);
 };
 
 init();
